@@ -51,8 +51,8 @@ public class SecurityConfig {
                 .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
                 .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
                 .authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
-                .redirectUri("http://127.0.0.1:8083/login/oauth2/code/messages-client-oidc")
-                .redirectUri("http://127.0.0.1:8083/authorized")
+                .redirectUri("http://client-server:8083/login/oauth2/code/messages-client-oidc")
+                .redirectUri("http://client-server:8083/authorized")
                 .scope(OidcScopes.OPENID)
                 .scope("message-read")
                 .scope("message-write")
@@ -63,7 +63,7 @@ public class SecurityConfig {
     @Bean
     public ProviderSettings providerSettings() {
         return ProviderSettings.builder()
-                .issuer("http://127.0.0.1:8081")
+                .issuer("http://auth-server:8081")
                 .build();
     }
 }
